@@ -8,9 +8,9 @@ const DarkMode = () => {
   useEffect(() => {
     localStorage.theme = theme;
     document.querySelector("html")?.setAttribute("data-theme", theme);
-    document.querySelectorAll("h1, h2, h3, p, ul, li, a").forEach((element) => {
+    document.querySelectorAll("h1, h2, h3, p, ul, li, a, button").forEach((element) => {
       element.style.color = theme === "dark" ? "lightgrey" : "black";
-    });
+    });  
   }, [theme]);
 
   return (
