@@ -7,6 +7,8 @@ import Posts from "./pages/Posts";
 import Goodies from "./pages/Goodies";
 import Courses from "./pages/Courses";
 import NotFound from "./pages/NotFound";
+import Article from "./components/Article";
+import EachArticle from "./pages/EachArticle";
 
 function App() {
   return (
@@ -18,6 +20,13 @@ function App() {
           <Route path="/posts" element={<Posts />} />
           <Route path="/goodies" element={<Goodies />} />
           <Route path="/courses" element={<Courses />} />
+
+          <Route
+            path="/article"
+            element={<Article title="" description="" />}
+          />
+          <Route path="/article/:id" element={<EachArticle />} />
+
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
