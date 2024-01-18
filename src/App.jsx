@@ -20,13 +20,11 @@ function App() {
           <Route path="/posts" element={<Posts />} />
           <Route path="/goodies" element={<Goodies />} />
           <Route path="/courses" element={<Courses />} />
-
           <Route
             path="/article"
-            element={<Article title="" description="" />}
+            element={<Article title="" description="" image="" />}
           />
           <Route path="/article/:id" element={<EachArticle />} />
-
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

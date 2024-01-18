@@ -1,11 +1,13 @@
-import { useParams } from "react-router-dom";
+import { useParams, NavLink } from "react-router-dom";
+import ArticleOne from "../assets/images/ArticleOne.png";
 
 const articlesData = [
   {
+    image: ArticleOne,
     id: 1,
-    title: "ChatGPT Vs Bard: Which is better for coding?",
+    title: "ChatGPT and Bard: What’s the difference?",
     description:
-      "We test out which tool is best at code generation, problem solving, refactoring code, providing debugging assistance..",
+      "The biggest difference between ChatGPT and Bard is the Large Language Models (LLMs) they are powered by. ChatGPT uses the Generative Pre-trained Transformer 4 (GPT-4), while Bard uses the Language Model for Dialogue Applications (LaMBDA). Also, ChatGPT is developed by OpenAI, while Bard was built by Google.",
   },
   {
     id: 2,
@@ -26,15 +28,25 @@ function EachArticle() {
   const article = articlesData.find((article) => article.id === Number(id));
 
   return (
-    <div>
+    <div className="max-w-5xl mx-auto mt-20 px-2">
       {article ? (
         <>
-          <h1>Article: {article.id}</h1>
-          <h2>{article.title}</h2>
-          <p>{article.description}</p>
+          <img src={article.image} alt={article.title} />
+          <h2 className="text-4xl font-medium">{article.title}</h2>
+          <p className="mt-8">{article.description}</p>
         </>
       ) : (
-        <p>Article was not found</p>
+        <div className="flex justify-center text-center max-w-5xl mx-auto">
+          <div className="mt-40">
+            <p className="text-base font-semibold text-indigo-600">404</p>
+            <h1 className="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+              Article was not found
+            </h1>
+            <div className="mt-10">
+              <NavLink to="/">Back to home</NavLink>
+            </div>
+          </div>
+        </div>
       )}
     </div>
   );

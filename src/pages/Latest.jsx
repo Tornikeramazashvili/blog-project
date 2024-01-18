@@ -5,7 +5,7 @@ function Latest() {
   return (
     <>
       <div className="max-w-[1024px] mx-auto mt-20 grid grid-cols-[repeat(auto-fill,minmax(400px,1fr))] gap-8">
-        <div className="card w-full text-primary-content bg-gray-800">
+        <div className="border white-black rounded-2xl">
           <div className="card-body">
             <Link to="/article/1">
               <Article
@@ -15,7 +15,7 @@ function Latest() {
             </Link>
           </div>
         </div>
-        <div className="card w-full text-primary-content bg-gray-800">
+        <div className="border white-black rounded-2xl">
           <div className="card-body">
             <Link to="/article/2">
               <Article
@@ -25,7 +25,7 @@ function Latest() {
             </Link>
           </div>
         </div>
-        <div className="card w-full text-primary-content bg-gray-800">
+        <div className="border white-black rounded-2xl">
           <div className="card-body">
             <Link to="/article/3">
               <Article
