@@ -5,7 +5,7 @@ const articlesData = [
   {
     image: ArticleOne,
     id: 1,
-    title: "ChatGPT and Bard: What’s the difference?",
+    title: "2024 and the future of education",
     description:
       "The biggest difference between ChatGPT and Bard is the Large Language Models (LLMs) they are powered by. ChatGPT uses the Generative Pre-trained Transformer 4 (GPT-4), while Bard uses the Language Model for Dialogue Applications (LaMBDA). Also, ChatGPT is developed by OpenAI, while Bard was built by Google.",
   },
@@ -15,12 +15,6 @@ const articlesData = [
     description:
       "Scrum vs. SAFe: Making the right choice for powerful organizational change. We’ll explain each framework, their..",
   },
-  {
-    id: 3,
-    title: "Cloud computing challenges and opportunities for the public sector",
-    description:
-      "A look at the current challenges and opportunities facing public sector organizations as they hope to adopt cloud...",
-  },
 ];
 
 function EachArticle() {
@@ -28,10 +22,10 @@ function EachArticle() {
   const article = articlesData.find((article) => article.id === Number(id));
 
   return (
-    <div className="max-w-5xl mx-auto mt-20 px-2">
+    <div className="max-w-5xl mx-auto mt-14">
       {article ? (
         <>
-          <img src={article.image} alt={article.title} />
+          {/* <img src={article.image} alt={article.title} className="w-full h-auto object-cover" /> */}
           <h2 className="text-4xl font-medium">{article.title}</h2>
           <p className="mt-8">{article.description}</p>
         </>

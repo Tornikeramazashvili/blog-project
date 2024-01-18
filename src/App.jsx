@@ -9,6 +9,7 @@ import Courses from "./pages/Courses";
 import NotFound from "./pages/NotFound";
 import Article from "./components/Article";
 import EachArticle from "./pages/EachArticle";
+import SignInForm from "./sign-in/SignInForm";
 
 function App() {
   return (
@@ -16,15 +17,16 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="/latest" element={<Latest />} />
-          <Route path="/posts" element={<Posts />} />
+          <Route path="/articles" element={<Latest />} />
+          <Route path="/community" element={<Posts />} />
           <Route path="/goodies" element={<Goodies />} />
           <Route path="/courses" element={<Courses />} />
+          <Route path="/sign_in" element={<SignInForm />} />
           <Route
             path="/article"
             element={<Article title="" description="" image="" />}
           />
-          <Route path="/article/:id" element={<EachArticle />} />
+          <Route path="/articles/:id" element={<EachArticle />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

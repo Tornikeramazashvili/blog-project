@@ -4,37 +4,27 @@ import { Link } from "react-router-dom";
 function Latest() {
   return (
     <>
-      <div className="max-w-[1024px] mx-auto mt-20 grid grid-cols-[repeat(auto-fill,minmax(400px,1fr))] gap-8">
-        <div className="border white-black rounded-2xl">
-          <div className="card-body">
-            <Link to="/article/1">
+      <div className="max-w-[1024px] mx-auto mt-20 grid grid-cols-[repeat(auto-fill,minmax(400px,1fr))] gap-6 px-2">
+        <Link to="/articles/1" className="flex">
+          <div className="border-2 black-white rounded-2xl w-full">
+            <div className="card-body">
               <Article
-                title="ChatGPT Vs Bard: Which is better for coding?"
-                description="We test out which tool is best at code generation, problem solving, refactoring code, providing debugging assistance.."
-              />
-            </Link>
-          </div>
-        </div>
-        <div className="border white-black rounded-2xl">
-          <div className="card-body">
-            <Link to="/article/2">
-              <Article
-                title="Scrum vs. SAFe: Which Agile framework is right for your team?"
+                title="2024 and the future of education"
                 description="Scrum vs. SAFe: Making the right choice for powerful organizational change. We’ll explain each framework, their.."
               />
-            </Link>
+            </div>
           </div>
-        </div>
-        <div className="border white-black rounded-2xl">
-          <div className="card-body">
-            <Link to="/article/3">
+        </Link>
+        <Link to="/articles/2" className="flex">
+          <div className="border-2 black-white rounded-2xl w-full">
+            <div className="card-body">
               <Article
-                title="Cloud computing challenges and opportunities for the public sector"
-                description="A look at the current challenges and opportunities facing public sector organizations as they hope to adopt cloud..."
+                title="2024 and the future of education"
+                description="Scrum vs. SAFe: Making the right choice for powerful organizational change. We’ll explain each framework, their.."
               />
-            </Link>
+            </div>
           </div>
-        </div>
+        </Link>
       </div>
     </>
   );
