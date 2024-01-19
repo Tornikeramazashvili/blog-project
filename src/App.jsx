@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 
 import Layout from "./pages/Layout";
 import Home from "./pages/Home";
@@ -21,7 +21,7 @@ function App() {
 
   const signOutUser = () => {
     signOut(auth).then(() => {
-      localStorage.clear();
+      localStorage.removeItem("isAuth");
       setIsAuth(false);
       navigate("/", { replace: true });
     });
