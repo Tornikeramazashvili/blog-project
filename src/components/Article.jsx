@@ -4,7 +4,7 @@ function Article({ title, description }) {
   return (
     <div>
       <h2 className="card-title">{title}</h2> 
-      <p className="cart-description mt-4">{description}</p>
+      <p className="cart-description mt-4 line-clamp-2">{description}</p>
     </div>
   );
 }
