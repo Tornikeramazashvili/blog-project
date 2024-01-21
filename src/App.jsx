@@ -43,7 +43,7 @@ function App() {
   // Display loading spinner if loading is true
   if (loading) {
     return (
-      <div className="flex items-center justify-center h-screen">
+      <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
         <span className="loading loading-spinner loading-lg"></span>
       </div>
     );
