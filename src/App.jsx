@@ -63,7 +63,7 @@ function App() {
       >
         <Route index element={<Home />} />
         <Route path="/articles" element={<Latest />} />
-        {isAuth && <Route path="/community" element={<Community />} />}
+        <Route path="/community" element={<Community isAuth={isAuth} />} />
         <Route path="/sign_in" element={<SignInForm setIsAuth={setIsAuth} />} />
         <Route path="/article" element={<Article title="" description="" />} />
         <Route path="/articles/:id" element={<EachArticle />} />
