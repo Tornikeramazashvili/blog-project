@@ -9,7 +9,7 @@ function SignInForm({ setIsAuth }) {
     signInWithPopup(auth, provider).then((results) => {
       localStorage.setItem("isAuth", true);
       setIsAuth(true);
-      navigate("/community");
+      navigate("/create_post");
     });
   };
 

@@ -9,6 +9,7 @@ function Layout({ isAuth, setIsAuth, signOutUser }) {
           <ul className="flex space-x-12 ">
             <NavLink
               to="/"
+              className="font-normal"
               style={({ isActive }) =>
                 isActive
                   ? {
@@ -23,6 +24,7 @@ function Layout({ isAuth, setIsAuth, signOutUser }) {
             <li>
               <NavLink
                 to="/articles"
+                className="font-normal"
                 style={({ isActive }) =>
                   isActive
                     ? {
@@ -38,13 +40,14 @@ function Layout({ isAuth, setIsAuth, signOutUser }) {
 
             {isAuth && (
               <NavLink
-                to="/community"
+                className="font-normal"
+                to="/create_post"
                 style={({ isActive }) => ({
                   textDecoration: "none",
                   borderBottom: isActive ? "1px solid currentColor" : "none",
                 })}
               >
-                Community
+                Create Post
               </NavLink>
             )}
           </ul>
@@ -53,6 +56,7 @@ function Layout({ isAuth, setIsAuth, signOutUser }) {
           {!isAuth ? (
             <NavLink
               to="/sign_in"
+              className="font-normal"
               style={({ isActive }) =>
                 isActive
                   ? {

@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import Layout from "./pages/Layout";
 import Home from "./pages/Home";
 import Latest from "./pages/Latest";
-import Community from "./pages/Community";
+import CreatePost from "./pages/CreatePost";
 import NotFound from "./pages/NotFound";
 import Article from "./components/Article";
 import EachArticle from "./pages/EachArticle";
@@ -63,10 +63,11 @@ function App() {
       >
         <Route index element={<Home />} />
         <Route path="/articles" element={<Latest />} />
-        <Route path="/community" element={<Community isAuth={isAuth} />} />
+        <Route path="/create_post" element={<CreatePost isAuth={isAuth} />} />
         <Route path="/sign_in" element={<SignInForm setIsAuth={setIsAuth} />} />
         <Route path="/article" element={<Article title="" description="" />} />
         <Route path="/articles/:id" element={<EachArticle />} />
+        
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>

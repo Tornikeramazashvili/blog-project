@@ -3,7 +3,7 @@ import { addDoc, collection } from "firebase/firestore";
 import { db, auth } from "../services/FirebaseConfig";
 import { useNavigate } from "react-router-dom";
 
-function Community({ isAuth }) {
+function CreatePost({ isAuth }) {
   const [title, setTitle] = useState("");
   const [post, setPost] = useState("");
   const [loading, setLoading] = useState(false);
@@ -41,11 +41,12 @@ function Community({ isAuth }) {
           <span className="loading loading-spinner loading-lg"></span>
         </div>
       ) : (
-        <div className="max-w-5xl mx-auto mt-20 px-2 overflow-hidden">
+        <div className="max-w-5xl mx-auto mt-20 px-2 overflow-hidden mb-10">
           <div className="mb-3">
             <h2 className="mb-2.5">Blog Title</h2>
             <div>
               <input
+                required
                 type="text"
                 placeholder="Enter your blog title"
                 className="input input-bordered w-full"
@@ -59,6 +60,7 @@ function Community({ isAuth }) {
             <div className="flex flex-col">
               <h2 className="mb-2.5">Blog Post</h2>
               <textarea
+                required
                 className="textarea textarea-bordered h-24"
                 placeholder="Share your thoughts and insights here"
                 onChange={(event) => {
@@ -76,4 +78,4 @@ function Community({ isAuth }) {
   );
 }
 
-export default Community;
+export default CreatePost;
