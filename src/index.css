@@ -5,9 +5,18 @@
 html,
 body {
   overflow-x: hidden;
-} 
+}
 
 body {
   margin-left: 20px;
   margin-right: 20px;
+}
+
+@media (max-width: 500px) {
+  .hide-left-side-of-navbar {
+    display: none;
+  }
+  .navbar {
+    justify-content: center;
+  }
 }

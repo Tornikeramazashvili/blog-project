@@ -7,7 +7,7 @@ function Layout({ isAuth, signOutUser }) {
     <>
       <div className="flex items-center justify-between max-w-5xl mx-auto mt-10">
         <nav className="navbar">
-          <ul className="flex space-x-12 ">
+          <ul className="left-side-of-navbar flex space-x-12 ">
             <NavLink
               to="/"
               className="font-normal"
@@ -53,7 +53,7 @@ function Layout({ isAuth, signOutUser }) {
             )}
           </ul>
         </nav>
-        <div className="flex items-center justify-between w-36 pr-2">
+        <div className="hide-left-side-of-navbar flex items-center justify-between w-36 pr-2">
           {!isAuth ? (
             <NavLink
               to="/sign_in"
