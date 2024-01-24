@@ -1,12 +1,14 @@
 import { auth, provider } from "../services/FirebaseConfig";
 import { signInWithPopup } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import PropTypes from "prop-types";
 
 function SignInForm({ setIsAuth }) {
   let navigate = useNavigate();
 
+  // Function to sign in with Google using Firebase authentication
   const signInWithGoogle = () => {
-    signInWithPopup(auth, provider).then((results) => {
+    signInWithPopup(auth, provider).then(() => {
       localStorage.setItem("isAuth", true);
       setIsAuth(true);
       navigate("/create_post");
@@ -25,7 +27,7 @@ function SignInForm({ setIsAuth }) {
               className="w-6 h-6"
               src="https://www.svgrepo.com/show/475656/google-color.svg"
               loading="lazy"
-              alt="google logo"
+              alt="Google"
             />
             <span className="text-white-black">Sign in with Google</span>
           </button>
@@ -34,5 +36,9 @@ function SignInForm({ setIsAuth }) {
     </>
   );
 }
+
+SignInForm.propTypes = {
+  setIsAuth: PropTypes.func.isRequired,
+};
 
 export default SignInForm;

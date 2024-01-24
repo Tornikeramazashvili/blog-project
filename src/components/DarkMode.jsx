@@ -3,8 +3,10 @@ import { useEffect, useState } from "react";
 const DarkMode = () => {
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
 
+  // Function to handle toggling between light and dark themes
   const handleToggle = (e) => setTheme(e.target.checked ? "dark" : "light");
 
+  // Effect to update styles based on the selected theme
   useEffect(() => {
     localStorage.theme = theme;
     document.querySelector("html")?.setAttribute("data-theme", theme);

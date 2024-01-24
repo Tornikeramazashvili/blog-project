@@ -10,6 +10,7 @@ import NotFound from "./pages/NotFound";
 import Article from "./components/Article";
 import EachArticle from "./pages/EachArticle";
 import SignInForm from "./sign-in/SignInForm";
+import PostDetails from "./pages/PostDetails";
 
 // Firebase
 import { signOut } from "firebase/auth";
@@ -67,7 +68,7 @@ function App() {
         <Route path="/sign_in" element={<SignInForm setIsAuth={setIsAuth} />} />
         <Route path="/article" element={<Article title="" description="" />} />
         <Route path="/articles/:id" element={<EachArticle />} />
-        
+        <Route path="/post/:postId" element={<PostDetails />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>

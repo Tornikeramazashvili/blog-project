@@ -1,10 +1,11 @@
 import { Outlet, NavLink } from "react-router-dom";
+import PropTypes from "prop-types";
 import DarkMode from "../components/DarkMode";
 
-function Layout({ isAuth, setIsAuth, signOutUser }) {
+function Layout({ isAuth, signOutUser }) {
   return (
     <>
-      <div className=" flex items-center justify-between max-w-5xl mx-auto mt-10 ">
+      <div className="flex items-center justify-between max-w-5xl mx-auto mt-10">
         <nav className="navbar">
           <ul className="flex space-x-12 ">
             <NavLink
@@ -19,7 +20,7 @@ function Layout({ isAuth, setIsAuth, signOutUser }) {
                   : {}
               }
             >
-              EducationX
+              educationX
             </NavLink>
             <li>
               <NavLink
@@ -79,5 +80,10 @@ function Layout({ isAuth, setIsAuth, signOutUser }) {
     </>
   );
 }
+
+Layout.propTypes = {
+  isAuth: PropTypes.bool.isRequired,
+  signOutUser: PropTypes.func,
+};
 
 export default Layout;

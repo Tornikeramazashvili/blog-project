@@ -2,37 +2,60 @@ import { useEffect, useState } from "react";
 import { addDoc, collection } from "firebase/firestore";
 import { db, auth } from "../services/FirebaseConfig";
 import { useNavigate } from "react-router-dom";
+import PropTypes from "prop-types";
 
-function CreatePost({ isAuth }) {
-  const [title, setTitle] = useState("");
-  const [post, setPost] = useState("");
+const CreatePost = ({ isAuth }) => {
+  const [formData, setFormData] = useState({ title: "", post: "" });
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const postsCollectionRef = collection(db, "posts");
-  // Reference to the "posts" collection in the Firestore database
+  const [validationErrors, setValidationErrors] = useState({});
 
-  // Function to create a new blog post and add it to the Firestore database
+  // Function to validate form fields
+  const validateForm = () => {
+    const { title, post } = formData;
+    const newErrors = {};
+
+    if (!title.trim()) newErrors.title = "Title cannot be empty";
+    if (!post.trim()) newErrors.post = "Post cannot be empty";
+
+    setValidationErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  // Function to create a new post
   const createPost = async () => {
     try {
+      if (!validateForm()) return;
+
       setLoading(true);
+
+      // Add new post to Firestore
       await addDoc(postsCollectionRef, {
-        title,
-        post,
+        ...formData,
         author: {
           name: auth.currentUser.displayName,
           id: auth.currentUser.uid,
         },
       });
+
+      // Navigate to the home page after successful post creation
       navigate("/");
     } finally {
       setLoading(false);
     }
   };
 
-  // checks if the user is authenticated when the component mounts
+  // Effect to redirect to sign-in page if user is not authenticated
   useEffect(() => {
     if (!isAuth) navigate("/sign_in");
   }, [isAuth, navigate]);
+
+  // Function to handle changes in form fields
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prevData) => ({ ...prevData, [name]: value }));
+  };
 
   return (
     <>
@@ -48,12 +71,19 @@ function CreatePost({ isAuth }) {
               <input
                 required
                 type="text"
+                name="title"
                 placeholder="Enter your blog title"
-                className="input input-bordered w-full"
-                onChange={(event) => {
-                  setTitle(event.target.value);
-                }}
+                className={`input input-bordered w-full ${
+                  validationErrors.title ? "border-red-500" : ""
+                }`}
+                value={formData.title}
+                onChange={handleChange}
               />
+              {validationErrors.title && (
+                <p className="text-red-500 mt-1 text-sm">
+                  {validationErrors.title}
+                </p>
+              )}
             </div>
           </div>
           <div className="mb-3">
@@ -61,12 +91,19 @@ function CreatePost({ isAuth }) {
               <h2 className="mb-2.5">Blog Post</h2>
               <textarea
                 required
-                className="textarea textarea-bordered h-24"
+                name="post"
+                className={`textarea textarea-bordered h-24 ${
+                  validationErrors.post ? "border-red-500" : ""
+                }`}
                 placeholder="Share your thoughts and insights here"
-                onChange={(event) => {
-                  setPost(event.target.value);
-                }}
+                value={formData.post}
+                onChange={handleChange}
               ></textarea>
+              {validationErrors.post && (
+                <p className="text-red-500 mt-1 text-sm">
+                  {validationErrors.post}
+                </p>
+              )}
             </div>
           </div>
           <button className="btn w-full" onClick={createPost}>
@@ -76,6 +113,10 @@ function CreatePost({ isAuth }) {
       )}
     </>
   );
-}
+};
+
+CreatePost.propTypes = {
+  isAuth: PropTypes.bool.isRequired,
+};
 
 export default CreatePost;
