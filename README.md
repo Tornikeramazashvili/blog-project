@@ -43,6 +43,13 @@ To deploy this project clone the repository:
 ```bash
 git clone https://github.com/Tornikeramazashvili/blog-project
 ```
+
+Navigate into the project directory:
+
+```bash
+cd blog-project
+```
+
 Install dependencies:
 
 ```bash
