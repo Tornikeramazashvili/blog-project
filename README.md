@@ -14,9 +14,10 @@ Below, you'll find a brief overview of the project structure, technologies used,
 ## Technologies Used
 
  - React: A JavaScript library for building user interfaces.
+ - React Router: A standard library for routing in React applications.
  - Vite.js: A fast development server and build tool for modern web development.
  - Tailwind CSS: A utility-first CSS framework for building modern and responsive designs.
- - React Router: A standard library for routing in React applications.
+ - Daisyui: A component library for Tailwind Css.
  - Firebase: A platform for building web and mobile applications with serverless architecture.
 
 ## Features
