@@ -63,7 +63,7 @@ npm run dev
 
 Open your browser and navigate to:
 ```bash
-http://localhost:3000
+http://localhost:5173
 ```
 
 
